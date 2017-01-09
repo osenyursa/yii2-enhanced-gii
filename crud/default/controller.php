@@ -284,7 +284,7 @@ if (count($pks) === 1) {
         if (($model = <?= $modelClass ?>::findOne(<?= $condition ?>)) !== null) {
             return $model;
         } else {
-            throw new NotFoundHttpException(<?= $generator->generateString('The requested page does not exist.')?>);
+            throw new NotFoundHttpException(<?= $generator->generateString('请求的页面不存在.')?>);
         }
     }
 <?php foreach ($relations as $name => $rel): ?>
@@ -296,6 +296,7 @@ if (count($pks) === 1) {
     * @author Yohanes Candrajaya <moo.tensai@gmail.com>
     * @author Jiwantoro Ndaru <jiwanndaru@gmail.com>
     *
+    * @throws NotFoundHttpException
     * @return mixed
     */
     public function actionAdd<?= $rel[1] ?>()
@@ -306,7 +307,7 @@ if (count($pks) === 1) {
                 $row[] = [];
             return $this->renderAjax('_form<?= $rel[1] ?>', ['row' => $row]);
         } else {
-            throw new NotFoundHttpException(<?= $generator->generateString('The requested page does not exist.')?>);
+            throw new NotFoundHttpException(<?= $generator->generateString('请求的页面不存在.')?>);
         }
     }
 <?php endif; ?>

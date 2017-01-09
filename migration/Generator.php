@@ -268,6 +268,9 @@ class Generator extends \yii\gii\Generator
             }
             $result = '"' . $result . '"';
         }
+        if ($column->comment) {
+            $result .= "->comment(\"{$column->comment}\")";
+        }
         return $result;
     }
 

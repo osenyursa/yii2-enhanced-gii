@@ -738,7 +738,6 @@ class Generator extends \mootensai\enhancedgii\BaseGenerator
 //            $pk = empty($this->tableSchema->primaryKey) ? $this->tableSchema->getColumnNames()[0] : $this->tableSchema->primaryKey[0];
             $fkClassFQ = "\\" . $this->nsModel . "\\" . $rel[self::REL_CLASS];
             $output = "'$attribute' => [
-            'label' => '$humanize',
             'type' => TabularForm::INPUT_WIDGET,
             'widgetClass' => \\kartik\\widgets\\Select2::className(),
             'options' => [

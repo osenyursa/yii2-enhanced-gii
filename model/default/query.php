@@ -10,7 +10,7 @@
 
 $modelFullClassName = $modelClassName;
 if ($generator->nsModel !== $generator->queryNs) {
-    $modelFullClassName = '\\' . $generator->queryNs . '\\' . $modelFullClassName;
+    $modelFullClassName = '\\' . $generator->nsModel . '\\' . $modelFullClassName;
 }
 
 echo "<?php\n";

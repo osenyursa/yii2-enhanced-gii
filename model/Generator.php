@@ -57,6 +57,7 @@ class Generator extends \mootensai\enhancedgii\BaseGenerator {
     public $deletedBy = 'deleted_by';
     public $deletedAt = 'deleted_at';
     public $generateBaseOnly = false;
+    public $tableLabel = '';
 
     /**
      * @inheritdoc
@@ -93,7 +94,7 @@ class Generator extends \mootensai\enhancedgii\BaseGenerator {
             [['skippedColumns', 'skippedRelations',
                 'blameableValue', 'nameAttribute', 'hiddenColumns', 'timestampValue',
                 'optimisticLock', 'createdAt', 'updatedAt', 'createdBy', 'updatedBy',
-                'blameableValue', 'UUIDColumn', 'deletedBy', 'deletedAt'], 'safe'],
+                'blameableValue', 'UUIDColumn', 'deletedBy', 'deletedAt','tableLabel'], 'safe'],
         ]);
     }
 
@@ -117,6 +118,7 @@ class Generator extends \mootensai\enhancedgii\BaseGenerator {
 //            'indexWidgetType' => 'Widget Used in Index Page',
 //            'searchModelClass' => 'Search Model Class',
             'generateBaseOnly' => 'Generate Base Model Only',
+            'tableLabel' => 'Model Display Name',
         ]);
     }
 
@@ -283,7 +285,10 @@ class Generator extends \mootensai\enhancedgii\BaseGenerator {
             $this->modelClass = "{$this->nsModel}\\{$modelClassName}";
             $this->tableSchema = $tableSchema;
             $this->isTree = !array_diff(self::getTreeColumns(), $tableSchema->columnNames);
+            $this->tableLabel = $this->getTableLabel($tableName);
+            // $this->isTree = false;
 //            $this->controllerClass = $this->nsController . '\\' . $modelClassName . 'Controller';
+
             $params = [
                 'tableName' => $tableName,
                 'className' => $modelClassName,
@@ -292,7 +297,8 @@ class Generator extends \mootensai\enhancedgii\BaseGenerator {
                 'labels' => $this->generateLabels($tableSchema),
                 'rules' => $this->generateRules($tableSchema),
                 'relations' => isset($relations[$tableName]) ? $relations[$tableName] : [],
-                'isTree' => $this->isTree
+                'isTree' => $this->isTree,
+                'tableLabel' => $this->tableLabel,
             ];
             // model :
             $files[] = new CodeFile(

@@ -63,6 +63,14 @@ class <?= $className ?> extends <?= ($isTree) ? '\kartik\tree\models\Tree' . "\n
     {
         return '<?= $generator->generateTableName($tableName) ?>';
     }
+
+    /**
+     * @inheritdoc
+     */
+    public static function tableLabel()
+    {
+        return '<?= $tableLabel ?>';
+    }
 <?php if ($generator->db !== 'db'): ?>
 
     /**
@@ -115,7 +123,8 @@ class <?= $className ?> extends <?= ($isTree) ? '\kartik\tree\models\Tree' . "\n
 <?php if ($generator->createdAt || $generator->updatedAt
         || $generator->createdBy || $generator->updatedBy
         || $generator->UUIDColumn): 
-    echo "\n"; ?>/**
+    echo "\n"; ?>
+    /**
      * @inheritdoc
      * @return array mixed
      */ 
