@@ -29,7 +29,7 @@ use kartik\tree\Module;
 use yii\web\View;
 
 
-$this->title = <?= ($generator->pluralize) ? $generator->generateString(Inflector::pluralize(Inflector::camel2words($baseModelClass))) : $generator->generateString(Inflector::camel2words($baseModelClass)) ?>;
+$this->title = <?= $generator->generateString($generator->getTableLabel()); ?>;
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="<?= $id ?>-index">
