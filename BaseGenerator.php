@@ -540,10 +540,10 @@ abstract class BaseGenerator extends \yii\gii\Generator
     /**
      * @return string
      */
-    public function getTableLabel()
+    public function generateTableLabel($tableName)
     {
         $db = $this->getDbConnection();
-        $sql = "show table status where name='$this->tableName'";
+        $sql = "show table status where name='$tableName'";
         $result = $db->createCommand($sql)->queryOne();
 
         $modelName = $result?$result['Comment']:'';
