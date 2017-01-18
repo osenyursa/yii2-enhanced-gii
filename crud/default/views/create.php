@@ -7,7 +7,7 @@ use yii\helpers\StringHelper;
 /* @var $generator mootensai\enhancedgii\crud\Generator */
 
 
-$tableLabel = $generator->getTableLabel($generator->tableName);
+$tableLabel = $generator->generateTableLabel($generator->tableName);
 echo "<?php\n";
 ?>
 

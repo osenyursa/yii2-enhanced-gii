@@ -7,7 +7,7 @@ use yii\helpers\StringHelper;
 /* @var $generator yii\gii\generators\crud\Generator */
 
 $urlParams = $generator->generateUrlParams();
-$tableLabel = $generator->getTableLabel($generator->tableName);
+$tableLabel = $generator->generateTableLabel($generator->tableName);
 echo "<?php\n";
 ?>
 

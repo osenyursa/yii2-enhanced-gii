@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="row">
         <div class="<?= ($generator->saveAsNew) ? "col-sm-8" : "col-sm-9";?>">
             <?= "<?php if(!Yii::\$app->request->isAjax): ?>\n" ?>
-            <h2><?= "<?= " ?><?= $generator->generateString(Inflector::camel2words(StringHelper::basename($generator->getTableLabel($generator->tableName)))) ?>.' '. Html::encode($this->title) ?></h2>
+            <h2><?= "<?= " ?><?= $generator->generateString(Inflector::camel2words(StringHelper::basename($generator->generateTableLabel($generator->tableName)))) ?>.' '. Html::encode($this->title) ?></h2>
             <?= "<?php endif; ?>\n" ?>
         </div>
         <div class="<?= ($generator->saveAsNew) ? "col-sm-4" : "col-sm-3";?>" style="margin-top: 15px">
