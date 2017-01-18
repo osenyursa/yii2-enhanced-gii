@@ -23,7 +23,7 @@ use kartik\export\ExportMenu;
 use <?= $generator->indexWidgetType === 'grid' ? "kartik\\grid\\GridView;" : "yii\\widgets\\ListView;" ?>
 
 
-$this->title = <?= $generator->generateString($generator->getTableLabel()); ?>;
+$this->title = <?= $generator->generateString($generator->generateTableLabel($tableName)); ?>;
 $this->params['breadcrumbs'][] = $this->title;
 $search = "$('.search-button').click(function(){
 	$('.search-form').toggle(1000);
