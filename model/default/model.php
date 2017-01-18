@@ -69,7 +69,7 @@ class <?= $className ?> extends <?= ($isTree) ? '\kartik\tree\models\Tree' . "\n
      */
     public static function tableLabel()
     {
-        return '<?= $tableLabel ?>';
+        return '<?= $generator->getTableLabel() ?>';
     }
 <?php if ($generator->db !== 'db'): ?>
 
